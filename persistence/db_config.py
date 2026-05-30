@@ -3,6 +3,8 @@ from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 class Base(DeclarativeBase):
     pass
 
@@ -17,6 +19,7 @@ SessionLocal = sessionmaker(bind=engine)
 
 
 def init_db():
+    import model.admin
 
     Base.metadata.create_all(bind=engine)
 
