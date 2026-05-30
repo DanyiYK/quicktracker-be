@@ -30,4 +30,4 @@ class Courier(Base):
         if not isinstance(other, Courier):
             return False
 
-        return self.id==other.id
+        return self.fiscal_code==other.fiscal_code
