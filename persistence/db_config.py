@@ -21,6 +21,8 @@ SessionLocal = sessionmaker(bind=engine)
 def init_db():
     import model.admin
     import model.courier
+    import model.package
+    
     Base.metadata.create_all(bind=engine)
 
 
