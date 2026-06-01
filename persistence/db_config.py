@@ -22,7 +22,11 @@ def init_db():
     import model.admin
     import model.courier
     import model.package
-    
+    import model.region
+    import model.province
+    import model.city
+
+    Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 
 

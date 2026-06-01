@@ -1,0 +1,17 @@
+[
+    {
+        "cod_istat": "067",
+        "region_istat": "01",
+        "name": "Teramo" 
+    },
+    {
+        "cod_istat": "068",
+        "region_istat": "01",
+        "name": "Pescara" 
+    },
+    {
+        "cod_istat": "069",
+        "region_istat": "01",
+        "name": "Chieti" 
+    }
+]

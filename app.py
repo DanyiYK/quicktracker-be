@@ -1,7 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
 
-from persistence.db_config import init_db
+from persistence.db_config import init_db, get_session
+from sqlalchemy import select
+
+from model.region import Region
+from model.province import Province
 
 app = Flask(__name__)
 

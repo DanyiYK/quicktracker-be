@@ -1,0 +1,26 @@
+[
+    {
+        "cod_istat": "067041",
+        "province_istat": "067",
+        "region_istat": "01",
+        "lat": 0,
+        "long": 0,
+        "name": "Teramo" 
+    },
+    {
+        "cod_istat": "068028",
+        "province_istat": "068",
+        "region_istat": "01",
+        "lat": 0,
+        "long": 0,
+        "name": "Pescara" 
+    },
+    {
+        "cod_istat": "069022",
+        "province_istat": "069",
+        "region_istat": "01",
+        "lat": 0,
+        "long": 0,
+        "name": "Chieti" 
+    }
+]

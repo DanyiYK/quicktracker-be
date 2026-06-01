@@ -7,7 +7,7 @@ class Package(Base):
     __tablename__ = "package"
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    recipient = Column(String(100), nullable=False) # The name of the entity that should receive the package
+    content = Column(String(500), nullable=False)
     is_fragile = Column(Boolean, nullable=False, default=False)
 
     # Measurements (used to retrieve the cost of the delivery)
@@ -19,7 +19,6 @@ class Package(Base):
     def to_dict(self):
         return {
             "id": self.id,
-            "recipient": self.recipient,
             "is_fragile": self.is_fragile,
             "weight": self.weight,
             "base": self.base,
