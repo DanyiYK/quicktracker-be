@@ -19,6 +19,7 @@ class Package(Base):
     def to_dict(self):
         return {
             "id": self.id,
+            "content": self.content,
             "is_fragile": self.is_fragile,
             "weight": self.weight,
             "base": self.base,
