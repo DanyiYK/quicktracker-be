@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship, Mapped, sessionmaker
 from persistence.db_config import Base
 import json
 
-
 class Province(Base):
     __tablename__ = "province"
 

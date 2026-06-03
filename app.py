@@ -4,8 +4,8 @@ from flask_cors import CORS
 from persistence.db_config import init_db, get_session
 from sqlalchemy import select
 
-from model.state import State
-from model.next_state import NextState
+from model.delivery_state import DeliveryState
+from model.next_delivery_state import NextState
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ init_db()
 
 session = get_session()
 
-ordered_state = session.get(State, 0)
+ordered_state = session.get(DeliveryState, 0)
 print(ordered_state.next_states)
 print(ordered_state.next_states[0].next_state.next_states)
 

@@ -4,30 +4,30 @@ from persistence.db_config import Base
 import json
 
 
-class NextState(Base):
-    __tablename__ = "next_state"
+class NextDeliveryState(Base):
+    __tablename__ = "next_delivery_state"
 
-    id = Column(ForeignKey("state.id"), primary_key=True)
-    next_state_id = Column(ForeignKey("state.id"), primary_key=True)
+    id = Column(ForeignKey("delivery_state.id"), primary_key=True)
+    next_delivery_state_id = Column(ForeignKey("delivery_state.id"), primary_key=True)
     
-    next_state = relationship("State", foreign_keys=[next_state_id])
+    next_delivery_state = relationship("DeliveryState", foreign_keys=[next_delivery_state_id])
     
     def to_dict(self):
         return {
             "id": self.id,
-            "next_state_id": self.next_state_id,
+            "next_state_id": self.next_delivery_state_id,
         }
 
     def __repr__(self):
-        return f"State(id={self.id}, next_state_id={self.next_state_id})"
+        return f"State(id={self.id}, next_state_id={self.next_delivery_state_id})"
 
     def __eq__(self, other):
-        if not isinstance(other, NextState):
+        if not isinstance(other, NextDeliveryState):
             return False
 
         return self.id==other.id
 
-@event.listens_for(NextState.__table__, 'after_create')
+@event.listens_for(NextDeliveryState.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
     print("Adding next states data...")
     
@@ -46,6 +46,6 @@ def receive_after_create(target, connection, **kw):
             })
 
     connection.execute(
-        NextState.__table__.insert(),
+        NextDeliveryState.__table__.insert(),
         to_add
     )
