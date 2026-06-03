@@ -25,6 +25,8 @@ def init_db():
     import model.region
     import model.province
     import model.city
+    import model.state
+    import model.next_state
 
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
