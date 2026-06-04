@@ -19,7 +19,7 @@ class NextDeliveryState(Base):
         }
 
     def __repr__(self):
-        return f"State(id={self.id}, next_state_id={self.next_delivery_state_id})"
+        return f"NextDeliveryState(id={self.id}, next_state_id={self.next_delivery_state_id})"
 
     def __eq__(self, other):
         if not isinstance(other, NextDeliveryState):
@@ -29,9 +29,9 @@ class NextDeliveryState(Base):
 
 @event.listens_for(NextDeliveryState.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
-    print("Adding next states data...")
+    print("Adding next delivery states data...")
     
-    with open("data/states.json") as file:
+    with open("data/delivery_states.json") as file:
         content = file.read()
     
     found_data = json.loads(content)

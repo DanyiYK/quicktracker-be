@@ -23,7 +23,7 @@ class DeliveryState(Base):
         }
 
     def __repr__(self):
-        return f"State(id={self.id}, display_name={self.display_name}, is_final_state={self.is_final_state})"
+        return f"DeliveryState(id={self.id}, display_name={self.display_name}, is_final_state={self.is_final_state})"
 
     def __eq__(self, other):
         if not isinstance(other, DeliveryState):
@@ -33,9 +33,9 @@ class DeliveryState(Base):
 
 @event.listens_for(DeliveryState.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
-    print("Adding state data...")
+    print("Adding delivery state data...")
     
-    with open("data/states.json") as file:
+    with open("data/delivery_states.json") as file:
         content = file.read()
     
     found_data = json.loads(content)
