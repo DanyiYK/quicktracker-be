@@ -7,7 +7,6 @@ class Admin(Base):
     __tablename__ = "admin"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(100), nullable=False)
     name = Column(String(100), nullable=False)
     surname = Column(String(100), nullable=False)
     email = Column(String(150), unique=True, nullable=False)

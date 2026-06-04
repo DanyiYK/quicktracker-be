@@ -1,11 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
+from dotenv import load_dotenv
+load_dotenv()
 
 from persistence.db_config import init_db, get_session
-from sqlalchemy import select
-
-from model.delivery_state import DeliveryState
-from model.next_delivery_state import NextState
+from controller import auth_controller
 
 app = Flask(__name__)
 
@@ -15,9 +14,7 @@ init_db()
 
 session = get_session()
 
-ordered_state = session.get(DeliveryState, 0)
-print(ordered_state.next_states)
-print(ordered_state.next_states[0].next_state.next_states)
+app.register_blueprint(auth_controller.auth_bp)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)

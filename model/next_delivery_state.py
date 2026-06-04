@@ -15,11 +15,11 @@ class NextDeliveryState(Base):
     def to_dict(self):
         return {
             "id": self.id,
-            "next_state_id": self.next_delivery_state_id,
+            "next_delivery_state_id": self.next_delivery_state_id,
         }
 
     def __repr__(self):
-        return f"NextDeliveryState(id={self.id}, next_state_id={self.next_delivery_state_id})"
+        return f"NextDeliveryState(id={self.id}, next_delivery_state_id={self.next_delivery_state_id})"
 
     def __eq__(self, other):
         if not isinstance(other, NextDeliveryState):
@@ -42,7 +42,7 @@ def receive_after_create(target, connection, **kw):
         for next_state in data["next_states"]:
             to_add.append({
                 "id": data["id"],
-                "next_state_id": next_state
+                "next_delivery_state_id": next_state
             })
 
     connection.execute(
