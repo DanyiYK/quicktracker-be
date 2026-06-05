@@ -11,9 +11,9 @@ def login():
     session = get_session()
 
     try:
-        token, username = auth_service.login(session, data)
+        token, name, surname = auth_service.login(session, data)
 
-        return jsonify({"token": token, "username": username}), 200
+        return jsonify({"token": token, "name": name, "surname": surname}), 200
     except ValueError as e:
         return jsonify({"error": str(e)}), 401
     
@@ -21,10 +21,10 @@ def login():
         session.close()
 
 def token_required(f):
-    @wraps
+    @wraps(f)
     def decorated(*args, **kwargs):
         token = None
-
+        print("CHECKING IT ALL")
         if "Authorization" in request.headers:
             auth_data = request.headers["Authorization"].split(" ")
             if len(auth_data)==2 and auth_data[0]=="Bearer":
@@ -37,16 +37,25 @@ def token_required(f):
 
                 g.admin_id = payload["admin_id"]
                 g.admin_email = payload["admin_email"]
+                print("set!")
             except ValueError as e:
                 return jsonify({"error": str(e)}), 401
-            
+            except Exception as e:
+                return jsonify({"error": str(e)}), 500
+        else:
+            return jsonify({"error": "Token is missing"}), 401
+
         return f(*args, **kwargs)
 
     return decorated
 
-@token_required
 @auth_bp.route("/me", methods=["GET"])
+@token_required
 def me():
     session = get_session()
+    admin = auth_service.me(session, g.admin_id)
+
+    if admin is None:
+        return jsonify({"error": "Account not found"}), 404
     
-    return auth_service.me(session, g.admin_id)
+    return admin
