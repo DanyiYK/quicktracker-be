@@ -13,9 +13,9 @@ def login():
     try:
         token, username = auth_service.login(session, data)
 
-        return jsonify({"token": token, "username": username})
+        return jsonify({"token": token, "username": username}), 200
     except ValueError as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e)}), 401
     
     finally:
         session.close()

@@ -42,7 +42,7 @@ def login(session, data):
     admin = admin_repository.get_by_email(session, data["email"])
 
     if admin is None:
-        return ValueError("Invalid credentials!")
+        raise ValueError("Invalid credentials!")
 
     is_password_valid = bcrypt.checkpw(
         data["password"].encode("utf-8"),
@@ -50,7 +50,7 @@ def login(session, data):
     )
     
     if not is_password_valid:
-        return ValueError("Invalid credentials!")
+        raise ValueError("Invalid credentials!")
 
     payload = {
         "admin_id": admin.id,
