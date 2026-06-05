@@ -1,0 +1,26 @@
+from sqlalchemy import Column, ForeignKey, String, Integer, Boolean
+
+from persistence.db_config import Base
+
+
+class DeliveryStateHistory(Base):
+    __tablename__ = "delivery"
+
+    id = Column(Integer, autoincrement=True, primary_key=True)
+    delivery_code = Column(ForeignKey("delivery.id"), nullable=False)
+    city = Column(ForeignKey("city.cod_istat"), nullable=False)
+    
+
+    def to_dict(self):
+        # TODO: Finish this dict
+        return {
+        }
+
+    def __repr__(self):
+        return f"DeliveryStateHistory()"
+
+    def __eq__(self, other):
+        if not isinstance(other, DeliveryStateHistory):
+            return False
+
+        return self.id==other.id
