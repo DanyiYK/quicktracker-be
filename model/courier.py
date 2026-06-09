@@ -6,7 +6,8 @@ from persistence.db_config import Base
 class Courier(Base):
     __tablename__ = "courier"
 
-    fiscal_code = Column(String(16), primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
+    fiscal_code = Column(String(16), unique=True)
     name = Column(String(100), nullable=False)
     surname = Column(String(100), nullable=False)
 
@@ -16,6 +17,7 @@ class Courier(Base):
 
     def to_dict(self):
         return {
+            "id": self.id,
             "fiscal_code": self.fiscal_code,
             "name": self.name,
             "surname": self.surname,

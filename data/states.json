@@ -1,0 +1,56 @@
+[
+    {
+        "id": 0,
+        "display_name": "Ordered",
+        "is_final_state": false,
+        "next_states": [1]
+    },
+    {
+        "id": 1,
+        "display_name": "In preparation",
+        "is_final_state": false,
+        "next_states": [2, 3, 5]
+    },
+    {
+        "id": 2,
+        "display_name": "Damaged",
+        "is_final_state": false,
+        "next_states": [7, 0]
+    },
+    {
+        "id": 3,
+        "display_name": "Lost",
+        "is_final_state": false,
+        "next_states": [7, 0, 4]
+    },
+    {
+        "id": 4,
+        "display_name": "Found",
+        "is_final_state": false,
+        "next_states": [5, 6]
+    },
+    {
+        "id": 5,
+        "display_name": "Delivering",
+        "is_final_state": false,
+        "next_states": [2, 3, 6]
+    },
+    {
+        "id": 6,
+        "display_name": "Arriving",
+        "is_final_state": false,
+        "next_states": [8, 2, 3]
+    },
+    {
+        "id": 7,
+        "display_name": "Refounded",
+        "is_final_state": true,
+        "next_states": []
+    },
+    {
+        "id": 8,
+        "display_name": "Delivered",
+        "is_final_state": true,
+        "next_states": []
+    }
+]

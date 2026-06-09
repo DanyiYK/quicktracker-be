@@ -4,10 +4,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from persistence.db_config import init_db, get_session
-from controller import auth_controller
+from controller import auth_controller, courier_controller
 from service.auth_service import register
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 CORS(app)
 
@@ -16,6 +17,7 @@ init_db()
 session = get_session()
 
 app.register_blueprint(auth_controller.auth_bp)
+app.register_blueprint(courier_controller.courier_bp)
 
 try:
     register(get_session(), {
