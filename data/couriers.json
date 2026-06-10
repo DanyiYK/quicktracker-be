@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Mario",
+        "surname": "Rossi",
+        "email": "mariorossi@gmail.com",
+        "phone_number": "+39 123 4567890",
+        "fiscal_code": "MLLSNT82P65Z404U"
+    },
+    {
+        "id": 2,
+        "name": "Enrico",
+        "surname": "Torre",
+        "email": "enricotorre@gmail.com",
+        "phone_number": "+39 456 7897890",
+        "fiscal_code": "TRRERC82P65Z404U"
+    },
+    {
+        "id": 3,
+        "name": "Claudia",
+        "surname": "Martini",
+        "email": "claudiamartini@gmail.com",
+        "phone_number": "+39 325 2347840",
+        "fiscal_code": "MRTCLD82P65Z404U"
+    },
+    {
+        "id": 4,
+        "name": "Franco",
+        "surname": "Trani",
+        "email": "francotrani@gmail.com",
+        "phone_number": "+39 234 566743",
+        "fiscal_code": "TRNFRN82P65Z404U"
+    }
+]

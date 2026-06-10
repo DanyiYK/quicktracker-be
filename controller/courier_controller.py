@@ -24,6 +24,28 @@ def create_courier():
     finally:
         session.close()
 
+@courier_bp.route("/courier/<int:courier_id>", methods=["PATCH"])
+@token_required
+def update_courier(courier_id):
+    data = request.get_json()
+    session = get_session()
+
+    try:
+        courier = courier_service.get_by_id(session, courier_id)
+
+        if courier is None:
+            return jsonify({"error": "Courier not found"}), 404
+
+        courier_service.update(session, courier, data)
+
+        return jsonify(courier.to_dict()), 201
+    except ValueError as x:
+
+        return jsonify({"error": f"{x}"}), 400
+    finally:
+        session.close()
+
+
 @courier_bp.route("/couriers", methods=["GET"])
 @token_required
 def get_all_couriers():
@@ -53,6 +75,26 @@ def get_courier(courier_id):
             return jsonify({"error": "Not found"}), 404
 
         return jsonify(courier.to_dict()), 200
+    except ValueError as x:
+
+        return jsonify({"error": f"{x}"}), 400
+    finally:
+        session.close()
+
+@courier_bp.route("/courier/<int:courier_id>", methods=["DELETE"])
+@token_required
+def delete_courier(courier_id):
+    session = get_session()
+
+    try:
+        courier = courier_service.get_by_id(session, courier_id)
+    
+        if courier is None:
+            return jsonify({"error": "Not found"}), 404
+
+        courier_service.delete(session, courier)
+
+        return jsonify({"success": "courier was deleted"}), 200
     except ValueError as x:
 
         return jsonify({"error": f"{x}"}), 400

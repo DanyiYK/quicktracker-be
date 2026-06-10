@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import event, Column, Integer, String
 
 from persistence.db_config import Base
-
+import json
 
 class Courier(Base):
     __tablename__ = "courier"
@@ -33,3 +33,27 @@ class Courier(Base):
             return False
 
         return self.fiscal_code==other.fiscal_code
+    
+@event.listens_for(Courier.__table__, 'after_create')
+def receive_after_create(target, connection, **kw):
+    print("Adding default courier data...")
+    
+    with open("data/couriers.json") as file:
+        content = file.read()
+    
+    data = json.loads(content)
+
+    connection.execute(
+        Courier.__table__.insert(),
+        [
+            {
+                "id": courier["id"],
+                "name": courier["name"],
+                "surname": courier["surname"],
+                "fiscal_code": courier["fiscal_code"],
+                "phone_number": courier["phone_number"],
+                "email": courier["email"]
+            }
+            for courier in data
+        ]
+    )

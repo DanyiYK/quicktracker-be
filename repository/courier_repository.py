@@ -22,7 +22,7 @@ def create(session, courier):
     session.commit()
     return courier
 
-def delete_by_id(session, courier):
+def delete(session, courier):
     session.delete(courier)
     session.commit()
 

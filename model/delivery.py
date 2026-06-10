@@ -21,6 +21,7 @@ class Delivery(Base):
     
 
     def to_dict(self):
+        # TODO: Finish this dict
         return {
         }
 
