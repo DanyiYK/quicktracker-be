@@ -13,7 +13,7 @@ class City(Base):
     lat = Column(Float, nullable=False)
     long = Column(Float, nullable=False)
 
-    province: Mapped["Province"] = relationship()
+    province = relationship("Province", back_populates="cities")
 
     def to_dict(self):
         return {

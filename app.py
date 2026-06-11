@@ -14,7 +14,12 @@ CORS(app)
 
 init_db()
 
-session = get_session()
+# from model.region import Region
+
+# print(get_session().get(Region, "01").provinces[0].cities)
+
+
+# session = get_session()
 
 app.register_blueprint(auth_controller.auth_bp)
 app.register_blueprint(courier_controller.courier_bp)

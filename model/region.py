@@ -1,4 +1,5 @@
-from sqlalchemy import event, Column, Integer, String
+from sqlalchemy import event, Column, String
+from sqlalchemy.orm import relationship
 from persistence.db_config import Base
 import json
 
@@ -8,6 +9,8 @@ class Region(Base):
 
     cod_istat = Column(String(2), primary_key=True)
     name = Column(String(100), nullable=False)
+
+    provinces = relationship("Province", back_populates="region")
 
     def to_dict(self):
         return {

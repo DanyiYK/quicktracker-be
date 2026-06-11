@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Mario",
         "surname": "Rossi",
         "email": "mariorossi@gmail.com",
@@ -8,7 +7,6 @@
         "fiscal_code": "MLLSNT82P65Z404U"
     },
     {
-        "id": 2,
         "name": "Enrico",
         "surname": "Torre",
         "email": "enricotorre@gmail.com",
@@ -16,7 +14,6 @@
         "fiscal_code": "TRRERC82P65Z404U"
     },
     {
-        "id": 3,
         "name": "Claudia",
         "surname": "Martini",
         "email": "claudiamartini@gmail.com",
@@ -24,7 +21,6 @@
         "fiscal_code": "MRTCLD82P65Z404U"
     },
     {
-        "id": 4,
         "name": "Franco",
         "surname": "Trani",
         "email": "francotrani@gmail.com",

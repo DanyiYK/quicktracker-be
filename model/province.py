@@ -10,7 +10,8 @@ class Province(Base):
     region_istat = Column(ForeignKey("region.cod_istat"))
     name = Column(String(100), nullable=False)
 
-    region: Mapped["Region"] = relationship()
+    region = relationship("Region", back_populates="provinces")
+    cities = relationship("City", back_populates="province")
 
     def to_dict(self):
         return {

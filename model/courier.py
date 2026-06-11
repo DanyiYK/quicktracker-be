@@ -47,7 +47,6 @@ def receive_after_create(target, connection, **kw):
         Courier.__table__.insert(),
         [
             {
-                "id": courier["id"],
                 "name": courier["name"],
                 "surname": courier["surname"],
                 "fiscal_code": courier["fiscal_code"],
