@@ -1,17 +1,1 @@
-[
-    {
-        "cod_istat": "067",
-        "region_istat": "01",
-        "name": "Teramo" 
-    },
-    {
-        "cod_istat": "068",
-        "region_istat": "01",
-        "name": "Pescara" 
-    },
-    {
-        "cod_istat": "069",
-        "region_istat": "01",
-        "name": "Chieti" 
-    }
-]
+[["AG", "19", "Agrigento"], ["AL", "01", "Alessandria"], ["AN", "11", "Ancona"], ["AR", "09", "Arezzo"], ["AP", "11", "Ascoli Piceno"], ["AT", "01", "Asti"], ["AV", "15", "Avellino"], ["BA", "16", "Bari"], ["BT", "16", "Barletta-Andria-Trani"], ["BL", "05", "Belluno"], ["BN", "15", "Benevento"], ["BG", "03", "Bergamo"], ["BI", "01", "Biella"], ["BO", "08", "Bologna"], ["BZ", "04", "Bolzano/Bozen"], ["BS", "03", "Brescia"], ["BR", "16", "Brindisi"], ["CA", "20", "Cagliari"], ["CL", "19", "Caltanissetta"], ["CB", "14", "Campobasso"], ["CE", "15", "Caserta"], ["CT", "19", "Catania"], ["CZ", "18", "Catanzaro"], ["CH", "13", "Chieti"], ["CO", "03", "Como"], ["CS", "18", "Cosenza"], ["CR", "03", "Cremona"], ["KR", "18", "Crotone"], ["CN", "01", "Cuneo"], ["EN", "19", "Enna"], ["FM", "11", "Fermo"], ["FE", "08", "Ferrara"], ["FI", "09", "Firenze"], ["FG", "16", "Foggia"], ["FC", "08", "Forlì-Cesena"], ["FR", "12", "Frosinone"], ["OT", "20", "Gallura Nord-Est Sardegna"], ["GE", "07", "Genova"], ["GO", "06", "Gorizia"], ["GR", "09", "Grosseto"], ["IM", "07", "Imperia"], ["IS", "14", "Isernia"], ["AQ", "13", "L'Aquila"], ["SP", "07", "La Spezia"], ["LT", "12", "Latina"], ["LE", "16", "Lecce"], ["LC", "03", "Lecco"], ["LI", "09", "Livorno"], ["LO", "03", "Lodi"], ["LU", "09", "Lucca"], ["MC", "11", "Macerata"], ["MN", "03", "Mantova"], ["MS", "09", "Massa-Carrara"], ["MT", "17", "Matera"], ["VS", "20", "Medio Campidano"], ["ME", "19", "Messina"], ["MI", "03", "Milano"], ["MO", "08", "Modena"], ["MB", "03", "Monza e della Brianza"], ["NA", "15", "Napoli"], ["NO", "01", "Novara"], ["NU", "20", "Nuoro"], ["OG", "20", "Ogliastra"], ["OR", "20", "Oristano"], ["PD", "05", "Padova"], ["PA", "19", "Palermo"], ["PR", "08", "Parma"], ["PV", "03", "Pavia"], ["PG", "10", "Perugia"], ["PU", "11", "Pesaro e Urbino"], ["PE", "13", "Pescara"], ["PC", "08", "Piacenza"], ["PI", "09", "Pisa"], ["PT", "09", "Pistoia"], ["PN", "06", "Pordenone"], ["PZ", "17", "Potenza"], ["PO", "09", "Prato"], ["RG", "19", "Ragusa"], ["RA", "08", "Ravenna"], ["RC", "18", "Reggio Calabria"], ["RE", "08", "Reggio nell'Emilia"], ["RI", "12", "Rieti"], ["RN", "08", "Rimini"], ["RM", "12", "Roma"], ["RO", "05", "Rovigo"], ["SA", "15", "Salerno"], ["SS", "20", "Sassari"], ["SV", "07", "Savona"], ["SI", "09", "Siena"], ["SR", "19", "Siracusa"], ["SO", "03", "Sondrio"], ["CI", "20", "Sulcis Iglesiente"], ["TA", "16", "Taranto"], ["TE", "13", "Teramo"], ["TR", "10", "Terni"], ["TO", "01", "Torino"], ["TP", "19", "Trapani"], ["TN", "04", "Trento"], ["TV", "05", "Treviso"], ["TS", "06", "Trieste"], ["UD", "06", "Udine"], ["AO", "02", "Valle d'Aosta/Vallée d'Aoste"], ["VA", "03", "Varese"], ["VE", "05", "Venezia"], ["VB", "01", "Verbano-Cusio-Ossola"], ["VC", "01", "Vercelli"], ["VR", "05", "Verona"], ["VV", "18", "Vibo Valentia"], ["VI", "05", "Vicenza"], ["VT", "12", "Viterbo"]]

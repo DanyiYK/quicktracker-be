@@ -1,7 +1,4 @@
 from service import auth_service
-from functools import wraps
-from flask import Blueprint, g, jsonify, request
-from persistence.db_config import get_session
 from model.courier import Courier
 from repository import courier_repository
 import validator

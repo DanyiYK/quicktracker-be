@@ -1,6 +1,4 @@
-from service import auth_service
-from functools import wraps
-from flask import Blueprint, g, jsonify, request
+from flask import Blueprint, jsonify, request
 from persistence.db_config import get_session
 from service import courier_service
 from controller.auth_controller import token_required

@@ -3,15 +3,16 @@ from sqlalchemy.orm import relationship, Mapped
 from persistence.db_config import Base
 import json
 
-class City(Base):
-    __tablename__ = "city"
+class Cap(Base):
+    __tablename__ = "cap"
 
-    istat_code = Column(String(6), primary_key=True)
-    province_code = Column(ForeignKey("province.code"))
-    name = Column(String(100), nullable=False)
+    cap = Column(String(5), primary_key=True)
+    city_istat = Column(ForeignKey("city.istat_code"), primary_key=True)
 
-    province = relationship("Province", back_populates="cities")
-    caps = relationship("Cap", back_populates="city")
+    lat = Column(Float, nullable=False)
+    long = Column(Float, nullable=False)
+
+    city = relationship("City", back_populates="caps")
 
     def to_dict(self):
         return {
@@ -29,23 +30,24 @@ class City(Base):
 
         return self.istat_code==other.istat_code
 
-@event.listens_for(City.__table__, 'after_create')
+@event.listens_for(Cap.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
-    print("Adding default city data...")
+    print("Adding default cap data...")
 
-    with open("data/cities.json") as file:
+    with open("data/caps.json") as file:
         content = file.read()
     
     data = json.loads(content)
 
     connection.execute(
-        City.__table__.insert(),
+        Cap.__table__.insert(),
         [
             {
-                "istat_code": city[0],
-                "province_code": city[1],
-                "name": city[2],
+                "cap": cap[0],
+                "city_istat": cap[1],
+                "lat": cap[2],
+                "long": cap[3]
             }
-            for city in data
+            for cap in data
         ]
     )

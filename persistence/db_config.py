@@ -22,6 +22,7 @@ def init_db():
     import model.region
     import model.province
     import model.city
+    import model.cap
     import model.delivery_state
     import model.next_delivery_state
 

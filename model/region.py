@@ -7,25 +7,25 @@ import json
 class Region(Base):
     __tablename__ = "region"
 
-    cod_istat = Column(String(2), primary_key=True)
+    istat_code = Column(String(2), primary_key=True)
     name = Column(String(100), nullable=False)
 
-    provinces = relationship("Province", back_populates="region")
+    provinces = relationship("Province", back_populates="region", order_by="asc(Province.name)")
 
     def to_dict(self):
         return {
-            "cod_istat": self.id,
-            "name": self.name,
+            "istat_code": self.istat_code,
+            "name": self.name
         }
 
     def __repr__(self):
-        return f"Region(cod_istat={self.cod_istat}, name={self.name})"
+        return f"Region(istat_code={self.istat_code}, name={self.name})"
 
     def __eq__(self, other):
         if not isinstance(other, Region):
             return False
 
-        return self.cod_istat==other.cod_istat
+        return self.istat_code==other.istat_code
 
 @event.listens_for(Region.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
@@ -40,8 +40,8 @@ def receive_after_create(target, connection, **kw):
         Region.__table__.insert(),
         [
             {
-                "cod_istat": region["cod_istat"],
-                "name": region["name"],
+                "istat_code": region[0],
+                "name": region[1],
             }
             for region in data
         ]

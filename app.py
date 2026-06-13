@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from persistence.db_config import init_db, get_session
-from controller import auth_controller, courier_controller
+from controller import auth_controller, courier_controller, location_controller
 from service.auth_service import register
 
 app = Flask(__name__)
@@ -14,15 +14,9 @@ CORS(app)
 
 init_db()
 
-# from model.region import Region
-
-# print(get_session().get(Region, "01").provinces[0].cities)
-
-
-# session = get_session()
-
 app.register_blueprint(auth_controller.auth_bp)
 app.register_blueprint(courier_controller.courier_bp)
+app.register_blueprint(location_controller.location_bp)
 
 try:
     register(get_session(), {
