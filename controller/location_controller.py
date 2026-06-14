@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from persistence.db_config import get_session
 from service import courier_service
 from controller.auth_controller import token_required
-from service import region_service, province_service, city_service
+from service import region_service, province_service, city_service, cap_service
 from controller.auth_controller import token_required
 
 location_bp = Blueprint("location", __name__, url_prefix="/api/location")
@@ -69,3 +69,23 @@ def get_province(code):
     found["cities"] = cities
 
     return jsonify(found)
+
+@location_bp.route("/cities", methods=["GET"])
+@token_required
+def get_cities():
+    session = get_session()
+
+    cap = request.args.get("cap")
+    
+    if cap:
+        found = cap_service.get_by_cap(session, cap)
+        
+        return_val = [data.city.to_dict() for data in found]
+    else:
+        found = city_service.get_all(session)
+
+        return_val = [city.to_dict() for city in found]
+
+    session.close()
+
+    return jsonify(return_val)

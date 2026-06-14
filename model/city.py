@@ -16,12 +16,12 @@ class City(Base):
     def to_dict(self):
         return {
             "istat_code": self.istat_code,
-            "province_istat": self.province_istat,
+            "province_code": self.province_code,
             "name": self.name,
         }
 
     def __repr__(self):
-        return f"City(istat_code={self.istat_code}, name={self.name}, province_istat={self.province_istat})"
+        return f"City(istat_code={self.istat_code}, name={self.name}, province_code={self.province_code})"
 
     def __eq__(self, other):
         if not isinstance(other, City):

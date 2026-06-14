@@ -16,19 +16,20 @@ class Cap(Base):
 
     def to_dict(self):
         return {
-            "istat_code": self.istat_code,
-            "province_istat": self.province_istat,
-            "name": self.name,
+            "cap": self.cap,
+            "city_istat": self.city_istat,
+            "lat": self.lat,
+            "long": self.long,
         }
 
     def __repr__(self):
-        return f"City(istat_code={self.istat_code}, name={self.name}, province_istat={self.province_istat})"
+        return f"Cap(cap={self.cap}, city_istat={self.city_istat}, lat={self.lat}, long={self.long})"
 
     def __eq__(self, other):
-        if not isinstance(other, City):
+        if not isinstance(other, Cap):
             return False
 
-        return self.istat_code==other.istat_code
+        return self.cap==other.cap and self.city_istat==self.city_istat
 
 @event.listens_for(Cap.__table__, 'after_create')
 def receive_after_create(target, connection, **kw):
