@@ -9,12 +9,8 @@ class Package(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     content = Column(String(500), nullable=False)
     is_fragile = Column(Boolean, nullable=False, default=False)
-
-    # Measurements (used to retrieve the cost of the delivery)
     weight = Column(Float, nullable=False) # Kg
-    base = Column(Float, nullable=True) # m metres
-    height = Column(Float, nullable=False) # metres
-    depth = Column(Float, nullable=False) # meters
+    size = Column(String(50))
 
     def to_dict(self):
         return {
@@ -22,9 +18,7 @@ class Package(Base):
             "content": self.content,
             "is_fragile": self.is_fragile,
             "weight": self.weight,
-            "base": self.base,
-            "height": self.height,
-            "depth": self.depth,
+            "size": self.size,
         }
 
     def __repr__(self):

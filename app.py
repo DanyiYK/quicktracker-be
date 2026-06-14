@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from persistence.db_config import init_db, get_session
-from controller import auth_controller, courier_controller, location_controller
+from controller import delivery_controller, auth_controller, courier_controller, location_controller
 from service.auth_service import register
 
 app = Flask(__name__)
@@ -14,6 +14,7 @@ CORS(app)
 
 init_db()
 
+app.register_blueprint(delivery_controller.delivery_bp)
 app.register_blueprint(auth_controller.auth_bp)
 app.register_blueprint(courier_controller.courier_bp)
 app.register_blueprint(location_controller.location_bp)

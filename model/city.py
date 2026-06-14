@@ -18,6 +18,7 @@ class City(Base):
             "istat_code": self.istat_code,
             "province_code": self.province_code,
             "name": self.name,
+            "province": self.province.to_dict()
         }
 
     def __repr__(self):

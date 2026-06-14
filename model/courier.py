@@ -1,5 +1,5 @@
 from sqlalchemy import event, Column, Integer, String
-
+from sqlalchemy.orm import relationship
 from persistence.db_config import Base
 import json
 
@@ -14,6 +14,8 @@ class Courier(Base):
     # Contacts
     email = Column(String(150), unique=True, nullable=True)
     phone_number = Column(String(32), unique=True, nullable=False)
+
+    deliveries = relationship("Delivery", back_populates="courier")
 
     def to_dict(self):
         return {

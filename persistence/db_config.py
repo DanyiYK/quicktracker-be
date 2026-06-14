@@ -18,13 +18,14 @@ SessionLocal = sessionmaker(bind=engine)
 def init_db():
     import model.admin
     import model.courier
-    import model.package
     import model.region
     import model.province
     import model.city
     import model.cap
     import model.delivery_state
     import model.next_delivery_state
+    import model.package
+    import model.delivery
 
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)

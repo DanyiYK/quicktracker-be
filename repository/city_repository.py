@@ -11,5 +11,5 @@ def get_by_province(session, province_istat):
 
 def get_by_istat(session, istat):
     return session.execute(
-        select(City).filter_by(cod_istat = istat)
+        select(City).filter_by(istat_code = istat)
     ).scalars().first()

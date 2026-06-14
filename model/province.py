@@ -18,6 +18,7 @@ class Province(Base):
             "code": self.code,
             "region_istat": self.region_istat,
             "name": self.name,
+            "region": self.region.to_dict()
         }
 
     def __repr__(self):

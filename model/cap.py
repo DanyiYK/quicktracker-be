@@ -6,8 +6,10 @@ import json
 class Cap(Base):
     __tablename__ = "cap"
 
-    cap = Column(String(5), primary_key=True)
-    city_istat = Column(ForeignKey("city.istat_code"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+
+    cap = Column(String(5))
+    city_istat = Column(ForeignKey("city.istat_code"))
 
     lat = Column(Float, nullable=False)
     long = Column(Float, nullable=False)

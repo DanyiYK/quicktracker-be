@@ -1,0 +1,382 @@
+{
+  "info": {
+    "name": "quicktracker",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "create courier",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "key": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiYWRtaW5fZW1haWwiOiJtYXJpb3Jvc3NpQGV4YW1wbGUuY29tIiwiYWRtaW5fbmFtZSI6Ik1hcmlvIiwiYWRtaW5fc3VybmFtZSI6IlJvc3NpIiwiZXhwIjoxNzgxMDQ0MzUxfQ.sj-H7-rxfJHY91HesjiuuAabSzxTR2EvaiS5OgwQp28",
+            "type": "string"
+          }
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/courier/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "courier",
+            ""
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Mario\",\n  \"surname\": \"Rossi\",\n  \"phone_number\": \"331 585 7421\",\n  \"email\": \"mariorossi@example.com\",\n  \"fiscal_code\": \"RSSMRA80A01H501U\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get all couriers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiYWRtaW5fZW1haWwiOiJtYXJpb3Jvc3NpQGV4YW1wbGUuY29tIiwiYWRtaW5fbmFtZSI6Ik1hcmlvIiwiYWRtaW5fc3VybmFtZSI6IlJvc3NpIiwiZXhwIjoxNzgxMDQ0MzUxfQ.sj-H7-rxfJHY91HesjiuuAabSzxTR2EvaiS5OgwQp28",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/courier/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "courier",
+            ""
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get courier",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiYWRtaW5fZW1haWwiOiJtYXJpb3Jvc3NpQGV4YW1wbGUuY29tIiwiYWRtaW5fbmFtZSI6Ik1hcmlvIiwiYWRtaW5fc3VybmFtZSI6IlJvc3NpIiwiZXhwIjoxNzgxMDQ0MzUxfQ.sj-H7-rxfJHY91HesjiuuAabSzxTR2EvaiS5OgwQp28",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/auth/me/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "me",
+            ""
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/auth/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login",
+            ""
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"mariorossi@example.com\",\n  \"password\": \"ciao123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "me",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiYWRtaW5fZW1haWwiOiJtYXJpb3Jvc3NpQGV4YW1wbGUuY29tIiwiYWRtaW5fbmFtZSI6Ik1hcmlvIiwiYWRtaW5fc3VybmFtZSI6IlJvc3NpIiwiZXhwIjoxNzgxMDQ0MzUxfQ.sj-H7-rxfJHY91HesjiuuAabSzxTR2EvaiS5OgwQp28",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/auth/me/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "me",
+            ""
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get all regions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/location/regions",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "location",
+            "regions"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get region",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/location/region/01",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "location",
+            "region",
+            "01"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get provinces",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/location/region/01/provinces",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "location",
+            "region",
+            "01",
+            "provinces"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get cities",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/location/cities?cap=66010",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "location",
+            "cities"
+          ],
+          "query": [
+            {
+              "key": "cap",
+              "value": "66010"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get province",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/location/province/CH",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "location",
+            "province",
+            "CH"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "create delivery",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://127.0.0.1:5001/api/delivery",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1:5001"
+          ],
+          "path": [
+            "api",
+            "delivery"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Tavolo in legno massello\",\n  \"fragile\": \"on\",\n  \"recipient\": \"Mario Rossi\",\n  \"recipient_address\": \"via Roma, 49\",\n  \"recipient_cap\": \"66020\",\n  \"recipient_city\": \"069059\",\n  \"sender\": \"Anna Torres\",\n  \"sender_address\": \"via Traino, 12A\",\n  \"sender_cap\": \"66021\",\n  \"sender_city\": \"069015\",\n  \"size\": \"small\",\n  \"weight\": \"1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": []
+}
