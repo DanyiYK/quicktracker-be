@@ -23,6 +23,7 @@ def init_db():
     import model.city
     import model.cap
     import model.delivery_state
+    import model.delivery_state_history
     import model.next_delivery_state
     import model.package
     import model.delivery

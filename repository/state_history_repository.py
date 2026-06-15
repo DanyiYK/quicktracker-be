@@ -18,7 +18,7 @@ def get_states_after(session, statehistory):
             DeliveryStateHistory.creation_date > statehistory.creation_date,
             DeliveryStateHistory.tracking_code == statehistory.tracking_code
         )
-    )
+    ).scalars().all()
 
 def create(session, statehistory):
     session.add(statehistory)
@@ -31,4 +31,4 @@ def delete(session, statehistory):
 
 def update(session, statehistory):
     session.commit()
-    return package
+    return statehistory

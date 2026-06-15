@@ -8,7 +8,7 @@ class Delivery(Base):
 
     id = Column(Integer, primary_key=True)
     tracking_code = Column(String, unique=True)
-    creation_date = Column(DateTime, nullable=False, server_default=func.now())
+    creation_date = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     is_closed = Column(Boolean, nullable=False, default=False)
 
     courier_id = Column(ForeignKey("courier.id"), nullable=False)
@@ -30,7 +30,8 @@ class Delivery(Base):
     sender_city = relationship("City", foreign_keys=[sender_city_id])
     recipient_cap = relationship("Cap", foreign_keys=[recipient_cap_id, recipient_city_id])
     recipient_city = relationship("City", foreign_keys=[recipient_city_id])
-
+    
+    states = relationship("DeliveryStateHistory")
 
     def to_dict(self):
         return {
@@ -56,7 +57,8 @@ class Delivery(Base):
             "sender_city": self.sender_city.to_dict(),
             "sender_cap": self.sender_cap.cap,
             "recipient_city": self.recipient_city.to_dict(),
-            "recipient_cap": self.recipient_cap.cap
+            "recipient_cap": self.recipient_cap.cap,
+            "states": [ state.to_dict() for state in self.states ]
         }
 
     def __repr__(self):

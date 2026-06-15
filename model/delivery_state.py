@@ -19,7 +19,8 @@ class DeliveryState(Base):
         return {
             "id": self.id,
             "display_name": self.display_name,
-            "is_final_state": self.is_final_state
+            "is_final_state": self.is_final_state,
+            "next_states": [{"id": state.state.id, "display_name": state.state.display_name} for state in self.next_states]
         }
 
     def __repr__(self):

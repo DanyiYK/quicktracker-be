@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from persistence.db_config import init_db, get_session
-from controller import delivery_controller, auth_controller, courier_controller, location_controller
+from controller import delivery_controller, state_history_controller, auth_controller, courier_controller, location_controller
 from service.auth_service import register
 
 app = Flask(__name__)
@@ -18,6 +18,7 @@ app.register_blueprint(delivery_controller.delivery_bp)
 app.register_blueprint(auth_controller.auth_bp)
 app.register_blueprint(courier_controller.courier_bp)
 app.register_blueprint(location_controller.location_bp)
+app.register_blueprint(state_history_controller.state_history_bp)
 
 try:
     register(get_session(), {

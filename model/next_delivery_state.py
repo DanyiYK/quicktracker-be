@@ -11,7 +11,9 @@ class NextDeliveryState(Base):
     next_delivery_state_id = Column(ForeignKey("delivery_state.id"), primary_key=True)
     
     next_delivery_state = relationship("DeliveryState", foreign_keys=[next_delivery_state_id])
-    
+
+    state = relationship("DeliveryState", foreign_keys=[next_delivery_state_id])
+
     def to_dict(self):
         return {
             "id": self.id,
