@@ -34,7 +34,7 @@ class City(Base):
 def receive_after_create(target, connection, **kw):
     print("Adding default city data...")
 
-    with open("data/cities.json") as file:
+    with open("data/cities.json", encoding="utf-8") as file:
         content = file.read()
     
     data = json.loads(content)

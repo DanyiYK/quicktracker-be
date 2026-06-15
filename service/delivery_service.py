@@ -70,12 +70,13 @@ def create(session, data, package_id):
     selected_courier = None
 
     for courier in all_couriers:
+        print(len(courier.deliveries))
         if selected_courier==None or (len(courier.deliveries) < len(selected_courier.deliveries)):
             selected_courier = courier
 
     newDelivery = Delivery(
         tracking_code = token_urlsafe(3).upper(),
-        courier_id = courier.id,
+        courier_id = selected_courier.id,
         package_id = package_id,
         
         sender_name = sender,
